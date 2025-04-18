@@ -35,7 +35,7 @@ laten beschikken waardoor deze efficiënter en effectiever zorg kunnen verlenen.
 
 ## Context en scope
 
-Dit project beoogd het LSP (VZVZ), Nuts (Nuts community) en de voor de Generieke
+Dit project beoogt het LSP (VZVZ), Nuts (Nuts community) en de voor de Generieke
 Functies (VWS en community) ontwikkelde modules aan elkaar te verbinden. Ook
 vraagt het aanpassingen in de zorgaanbieders gebruikte informatie systemen (XIS
 etc.).
@@ -52,15 +52,15 @@ medicatie overzicht als casus gebruikt. Hierbij kan een, volgens de autorisatie
 richtlijnen geauthenticeerde, arts in via de Nuts node welke verbonden is met
 het LSP een overzicht krijgen van de voorgeschreven medicatie.
 
-Het twee scenario heeft nog geen concrete casus. Hierbij wordt in de PoC gewerkt
+Het tweede scenario heeft nog geen concrete casus. Hierbij wordt in de PoC gewerkt
 met het ophalen van de Patient resource aangevuld met de Observervation
 resource. Dit is puur een demonstratie van technische werking en mogelijkheden.
 
 ## Architectuur samenvatting
 
-Deze PSA is opgesteld voor de het project team wat betrokken is bij de uitvoer
+Deze PSA is opgesteld voor het project team wat betrokken is bij de uitvoer
 van LSP x Nuts. Dit zijn VWS met iRealisatie als technische ondersteuning, VZVZ
-voor LSP en Nuts. Daarnaast is dit PSA ook bedoelt voor de stakeholders: beleid
+voor LSP en Nuts. Daarnaast is dit PSA ook bedoeld voor de stakeholders: beleid
 bij VWS, IT leveranciers en juridische ondersteuning.
 
 De oplossing maakt nieuwe functies beschikbaar voor zorgverleners. Hiervoor
@@ -90,7 +90,7 @@ LSP conversie van standaarden.
 Het LSP houdt in haar applicatieregister bij welke XIS’en gevalideerd zijn voor
 welke gegevensuitwisselingen (welke versies van berichten gestuurd en ontvangen
 mogen/kunnen worden). Hiervoor dient een XIS bij Nictiz een kwalificatie voor
-een bepaalde zorgtoepassing te hebben behaald en door VZVZ geaccepteerd zijn
+een bepaalde zorgtoepassing te hebben behaald en door VZVZ geaccepteerd te zijn
 voor de invulling van de generieke functies zoals ingevuld voor AORTA.
 
 ##### Zorgaanbieder
@@ -116,18 +116,18 @@ UZI-pas. Hierbij zijn er twee opties:
 
 #### Autorisatie
 
-Autorisatie geschied op basis van de autorisatierichtlijn waarin voor iedere
+Autorisatie geschiedt op basis van de autorisatierichtlijn waarin voor iedere
 transactie bepaald is welke UZI-rolcodes het bericht mogen versturen.
 
 #### Lokalisatie
 
 Lokalisatie van gegevens hangt nauw samen met toestemming.
 
-- In het geval een brondossierhouder de toestemmingen in het XIS beheerd wordt
+- In het geval een brondossierhouder de toestemmingen in het XIS beheert, wordt
   alleen met toestemming de verwijsindex _van_ het LSP gevuld met
   lokalisatiemetadata
 
-- In het geval de brosdossierhouder de toestemmingen in Mitz beheert wordt
+- In het geval de brondossierhouder de toestemmingen in Mitz beheert, wordt
   altijd het actualiteitenregister _in_ het LSP met lokalisatiemetadata gevuld,
   maar wordt dit pas vrijgegeven als Mitz hiervoor een toestemming heeft
   afgegeven.
@@ -230,8 +230,7 @@ verificatie te doen.
 Het LSP autoriseert binnenkomende en uitgaande verzoeken op basis van het afgesproken autorisatieprotocol. Voor de meeste gegevensuitwisselingen die nu op AORTA draaien is een autorisatie op basis van UZI-rolcode afgesproken.
 
 ### Toestemming
-Bij de op het LSP aangesloten zorgaanbieder zal op de huidige wijze bepaald
-worden of er expliciete toestemming verleend is. Dit gebeurt nu nog lokaal bij het bronsysteem, maar verschillende partijen migreren komende tijd de toestemmingen naar Mitz.
+Bij de op het LSP aangesloten zorgaanbieder zal op de huidige wijze bepaald worden of er expliciete toestemming verleend is. Dit gebeurt nu nog lokaal bij het bronsysteem, maar verschillende partijen migreren komende tijd de toestemmingen naar Mitz.
 
 ### Lokalisatie
 
@@ -249,7 +248,7 @@ bron ingebouwd worden in de Nuts node?
 
 Het LSP logt op de wijze die het nu al doet in voor het AORTA-afsprakenstelsel. Voor
 vragen in de andere richting (LSP naar Nuts) zal dit werken op de wijze zoals
-dit nu ook gebeurd bij Nuts-Nuts bevragingen.
+dit nu ook gebeurt bij Nuts-Nuts bevragingen.
 
 ### Conversie van standaarden (FHIR)
 
@@ -282,7 +281,7 @@ De ontwikkeling van het ZORG-AB naar de landelijke afspraken voor adressering is
 
 Op het moment van schrijven heeft Dezi nog geen mogelijkheid tot het
 ondersteunen van authenticatie over meerdere systemen heen. Hiermee wordt
-bedoelt dat een zorgverlener bij zorgaanbieder in haar ECD authenticeert en dat
+bedoeld dat een zorgverlener bij zorgaanbieder in haar ECD authenticeert en dat
 dit ECD vervolgens de authenticatie kan "doorsturen" naar een bron-systeem voor
 bevraging van medischegegevens. Zowel de technische specificatie als een (demo)
 oplossing is nodig om een PoC uit te kunnen voeren. Ook moeten de binnen de Nuts
@@ -295,7 +294,7 @@ Het authenticeren van gebruikers via Dezi is een pilot op zich. Het migratietraj
 
 ### LSP en Nuts connectiviteit
 
-Het ontwerp gaat uit van het uitbreiden van de het LSP met functionaliteit om
+Het ontwerp gaat uit van het uitbreiden van het LSP met functionaliteit om
 Nuts te kunnen bevragen en bevraagd te worden door Nuts nodes. Hiervoor dienen
 de authenticatie gegevens (Dezi en zorgaanbieder) volgens de Nuts wijze
 verstuurd en ontvangen te worden. Ook zullen deze, binnen het LSP, vertaald
@@ -337,7 +336,7 @@ plaatsvinden.
 
 ### Uitbreiding Dezi
 
-Een van de vereisten bij het leveren van medischegegevens aan een zorgverlener
+Een van de vereisten bij het leveren van medische gegevens aan een zorgverlener
 van een andere organisatie is informatie over die persoon. Dit gaat dan om zaken
 als het BIG nummer en de rol code.
 
