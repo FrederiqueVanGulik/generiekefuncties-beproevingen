@@ -3,8 +3,8 @@
 ## Introductie project
 
 Binnen de zorg wordt tussen verschillende soorten zorgaanbieders data
-uitgewisseld. Zo is er het Landelijk Schakel Punt (LSP) wat gebruikt wordt voor
-bijvoorbeeld uitwisseling van medicatie gegevens tussen ziekenhuizen, apotheken
+uitgewisseld. Het Landelijk Schakel Punt (LSP) wordt gebruikt voor
+o.a. uitwisseling van medicatiegegevens tussen ziekenhuizen, apotheken
 en huisartsen. Ook is er de Nuts infrastructuur die bijvoorbeeld veel gebruikt
 wordt in de verpleeg-, verzorgingshuizen en thuiszorg. Doordat niet alle
 zorgaanbieders op het LSP dan wel op Nuts zijn aangesloten is het niet mogelijk
@@ -20,7 +20,7 @@ Om brede uitwisseling in de zorg mogelijk te maken zijn er vier opties:
 
 4. Nieuwe infrastructuur opzetten voor het delen van medische gegevens
 
-Binnen dit project is gekozen voor optie 3 om uitwisseling mogelijk te maken.
+Binnen dit project is gekozen voor optie 3 (LSP en Nuts met elkaar verbinden) om uitwisseling mogelijk te maken.
 Dit zal gedaan worden door gebruik te maken van de componenten uit de Generieke
 Functies.
 
@@ -35,7 +35,7 @@ laten beschikken waardoor deze efficiënter en effectiever zorg kunnen verlenen.
 
 ## Context en scope
 
-Dit project beoogd het LSP (VZVZ), Nuts (Nuts community) en de voor de Generieke
+Dit project beoogt het LSP (VZVZ), Nuts (Nuts community) en de voor de Generieke
 Functies (VWS en community) ontwikkelde modules aan elkaar te verbinden. Ook
 vraagt het aanpassingen in de zorgaanbieders gebruikte informatie systemen (XIS
 etc.).
@@ -48,11 +48,11 @@ mogelijk:
 2. LSP vraagt informatie op bij Nuts
 
 Beide uitwisselrichtingen zijn in-scope. Voor de eerste wordt het actueel
-medicatie overzicht als casus gebruikt. Hierbij kan een, volgens de autorisatie
-richtlijnen geauthenticeerde, arts in via de Nuts node welke verbonden is met
-het LSP een overzicht krijgen van de voorgeschreven medicatie.
+medicatieoverzicht als casus gebruikt. Hierbij kan een, volgens de autorisatie
+richtlijnen geauthenticeerde, arts een overzicht krijgen van de voorgeschreven medicatie via de Nuts node welke verbonden is met
+het LSP.
 
-Het twee scenario heeft nog geen concrete casus. Hierbij wordt in de PoC gewerkt
+Het tweede scenario heeft nog geen concrete casus. Hierbij wordt in de PoC gewerkt
 met het ophalen van de Patient resource aangevuld met de Observervation
 resource. Dit is puur een demonstratie van technische werking en mogelijkheden.
 
@@ -60,7 +60,7 @@ resource. Dit is puur een demonstratie van technische werking en mogelijkheden.
 
 Deze PSA is opgesteld voor de het project team wat betrokken is bij de uitvoer
 van LSP x Nuts. Dit zijn VWS met iRealisatie als technische ondersteuning, VZVZ
-voor LSP en Nuts. Daarnaast is dit PSA ook bedoelt voor de stakeholders: beleid
+voor LSP en Nuts. Daarnaast is dit PSA ook bedoeld voor de stakeholders: beleid
 bij VWS, IT leveranciers en juridische ondersteuning.
 
 De oplossing maakt nieuwe functies beschikbaar voor zorgverleners. Hiervoor
@@ -72,7 +72,7 @@ aanpassingen zullen gaan doen voor deze PoC.
 Het project heeft als doel technisch oplossingen te ontwikkelen en beproeven in 
 een PoC. De PoC richt zich op de technische realisatie van de 
 uitwisselmogelijkheid. De juridische grondslagen en andere voorwaardelijke 
-onderdelen voor een pilot fase zijn buiten scope van dit project.
+onderdelen voor een pilotfase vallen buiten de scope van dit project.
 
 ## Huidige situatie
 
@@ -112,7 +112,7 @@ UZI-pas. Hierbij zijn er twee opties:
 
 2. De uiteindelijk verantwoordelijke arts heeft een zogenaamd mandaattoken
    getekend. Hiermee kan het systeem (icm een transactietoken en een
-   inschrijftoken) gegevens kan raadplegen.
+   inschrijftoken) gegevens raadplegen.
 
 ### Autorisatie
 
@@ -124,25 +124,25 @@ AORTA draaien is een autorisatie op basis van UZI-rolcode afgesproken.
 
 Lokalisatie van gegevens hangt nauw samen met toestemming.
 
-- In het geval een brondossierhouder de toestemmingen in het XIS beheerd wordt
+- In het geval een brondossierhouder de toestemmingen in het XIS beheert, wordt
   alleen met toestemming de verwijsindex _van_ het LSP gevuld met
   lokalisatiemetadata
 
-- In het geval de brondossierhouder de toestemmingen in Mitz beheert wordt
+- In het geval de brondossierhouder de toestemmingen in Mitz beheert, wordt
   altijd het actualiteitenregister _in_ het LSP met lokalisatiemetadata gevuld,
   maar wordt dit pas vrijgegeven als Mitz hiervoor een toestemming heeft
   afgegeven.
 
 #### Adressering
 
-Als het LSP zelf een applicatie moet adresseren geschiedt dit door het al
+Als het LSP zelf een applicatie moet adresseren, geschiedt dit door het al
 genoemde interne applicatieregister te raadplegen. Als een zorgverlener een
-andere zorgverlener zoekt/wil adresseren gebruikt met hiervoor het ZORG-AB
+andere zorgverlener zoekt/wil adresseren gebruikt men hiervoor het ZORG-AB
 adresboek (waarin ook een kopie zit van het applicatieregister).
 
 #### Logging
 
-Zowel agerend als reagerend XIS en het LSP houden allemaal een log bij
+Zowel agerend als reagerend XIS en het LSP houden allemaal een log bij.
 
 #### Conversie van standaarden (FHIR)
 
@@ -228,7 +228,7 @@ authenticatie.
 Het authenticeren van de zorgaanbieder zal vanuit Nuts naar het LSP gaan op basis
 van een verifiable credential wat (evt. indirect via een certificaat) via het
 UZI register tot stand komt. Het LSP valideert dit vervolgens. Systemen die op
-het LSP aangesloten zijn vertrouwen het LSP en zullen daarom geen additionele
+het LSP aangesloten zijn, vertrouwen het LSP en zullen daarom geen additionele
 verificatie doen.
 
 Voor de communicatie vanuit het LSP naar Nuts zal de vragende zorgaanbieder een
@@ -262,7 +262,7 @@ gewerkt met registratie via het LRZa.
 
 Het LSP logt op de wijze die het nu al doet in voor het AORTA-afsprakenstelsel. Voor
 vragen in de andere richting (LSP naar Nuts) zal dit werken op de wijze zoals
-dit nu ook gebeurd bij Nuts-Nuts bevragingen.
+dit nu ook gebeurt bij Nuts-Nuts bevragingen.
 
 #### Conversie van standaarden (FHIR)
 
@@ -296,7 +296,7 @@ PoC niet blokkerend.
 
 Op het moment van schrijven heeft Dezi nog geen mogelijkheid tot het
 ondersteunen van authenticatie over meerdere systemen heen. Hiermee wordt
-bedoelt dat een zorgverlener bij zorgaanbieder in haar ECD inlogt en dat
+bedoeld dat een zorgverlener bij zorgaanbieder in haar ECD inlogt en dat
 dit ECD vervolgens de authenticatie kan "doorsturen" naar een bron-systeem voor
 bevraging van medische gegevens. Zowel de technische specificatie als een (demo)
 oplossing is nodig om een PoC uit te kunnen voeren. Ook moeten de binnen de Nuts
@@ -304,17 +304,17 @@ en LSP gebruikte systemen voor de PoC aangepast worden om dit
 mechanisme te ondersteunen.
 
 Afhankelijk van de keuzes binnen de GF I&A en de bijbehorende impact kan voor 
-de PoC gekozen worden voor een tussentijdse oplossing voor het authenticatie
+deze PoC gekozen worden voor een tussentijdse oplossing voor het authenticatie
 vraagstuk. Twee mogelijke routes zijn:
 
 - Het LSP zet het de gedane zorgverlenerauthenticatie door het LSP om in een (VC)
   formaat. Het Nuts-netwerk dient dan het LSP als uitgever te vertrouwen.
 - Het LSP stuurt authenticatiebewijs (SAML2/ JWT token) door naar het Nuts 
-  netwerk. De ontvangende Nuts node gecontroleerd dit zelf.
+  netwerk. De ontvangende Nuts node controleert dit zelf.
 
 Het kan zijn dat de hierboven geschetste alternatieven voor Dezi tegen juridische
-obstakels lopen wanneer deze voor een pilot/productie fase ingezet moeten worden.
-Binnen dit project is dat vraagstuk buiten scope.
+obstakels lopen wanneer deze in een later stadium voor een pilot/productie fase ingezet moeten worden.
+Binnen dit project is dat juridische vraagstuk buiten scope.
 
 Naast deze routes is het mogelijk dat binnen de PoC nog andere oplossingen bedacht 
 worden voor de authenticatie vraag.
@@ -323,7 +323,7 @@ worden voor de authenticatie vraag.
 
 Het ontwerp gaat uit van het uitbreiden van de het LSP met functionaliteit om
 Nuts te kunnen bevragen en bevraagd te worden door Nuts nodes. Hiervoor dienen
-de authenticatie gegevens (Dezi en zorgaanbieder) volgens de Nuts wijze
+de authenticatiegegevens (Dezi en zorgaanbieder) volgens de Nuts wijze
 verstuurd en ontvangen te worden. Ook zullen deze, binnen het LSP, vertaald
 moeten worden naar het LSP eigen formaat.
 
@@ -337,7 +337,7 @@ Voor authenticatie vanuit LSP naar Nuts zijn er de volgende mogelijkheden:
 
 1. De op LSP aangesloten systemen gaan VC's gebruiken voor authenticatie
    (significante change voor ECD's).
-2. Het LSP zet de zorgaanbiederauthenticatie om in een (VC) formaat. De
+2. Het LSP zet de zorgaanbieder authenticatie om in een (VC) formaat. De
    ontvangende Nuts node dient dan het LSP als uitgever te vertrouwen.
 3. Het LSP stuurt het authenticatiebewijs (nu een SAML2 token) door naar
    de Nuts node. Deze kan dan dan controleren of dit klopt.
@@ -345,7 +345,7 @@ Voor authenticatie vanuit LSP naar Nuts zijn er de volgende mogelijkheden:
 ## Verantwoordelijkheden
 
 De binnen de PoC geïdentificeerde gaps (te realiseren functies) zullen
-gezamenlijk (VWS, VZVZ, Nuts) ingevuld worden. Per onderdeel is de
+gezamenlijk (door VWS, VZVZ, Nuts) ingevuld worden. Per onderdeel is de
 hoofdverantwoordelijke:
 
 - VWS
@@ -376,9 +376,9 @@ met oog op de beproeving wenselijk is om mee te nemen in de PoC.
 
 ### Uitbreiding Dezi
 
-Een van de vereisten bij het leveren van medischegegevens aan een zorgverlener
+Een van de vereisten bij het leveren van medische gegevens aan een zorgverlener
 van een andere organisatie is informatie over die persoon. Dit gaat dan om zaken
-als het BIG nummer en de rol code.
+als het BIG-nummer en de rol code.
 
 Om dit mogelijk te maken voor een uitwisseling tussen LSP en Nuts moet deze
 informatie op een betrouwbare wijze gedeeld kunnen worden. Het plan is om
@@ -429,7 +429,7 @@ punten met betrekking tot authenticatie.
 
 ### Autorisatie richtlijnen
 
-Binnen de VVT zijn veel zorgverleners werkzaam die geen BIG registratie hebben.
+Binnen de VVT zijn veel zorgverleners werkzaam die geen BIG-registratie hebben.
 Bestaande richtlijnen die van toepassing zijn op de ontsluiting van medische
 gegevens (zoals [die van de
 KNMP](https://www.knmp.nl/richtlijnen/overdracht-van-medicatiegegevens-de-keten))
